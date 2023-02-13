@@ -38,6 +38,40 @@ let resulted = unRegex.test(exampleStr);
 let quoteSample =
   "Beware of bugs in the above code; I have only proved it correct, not tried it.";
 let vowelRegex = /[aeiou]/gi;
-let result = quoteSample.match(vowelRegex);
+let result6 = quoteSample.match(vowelRegex);
 
-console.log(result);
+console.log(result6);
+// ================================================================
+let quoteSample1 = "The quick brown fox jumps over the lazy dog.";
+let alphabetRegex = /[a-z]/gi;
+let result7 = quoteSample.match(alphabetRegex);
+
+console.log(result7);
+// ================================================================
+// Crie um único regex que corresponda a um intervalo de letras entre h e s, e um intervalo de números entre 2 e 6. Lembre-se de incluir os sinalizadores apropriados no regex.
+let quoteSample2 = "Blueberry 3.141592653s are delicious.";
+let myRegex1 = /[h-s2-6]/gi;
+let result8 = quoteSample2.match(myRegex1);
+
+console.log(result8);
+// ================================================================
+// Crie um único regex que corresponda a todos os caracteres que não sejam um número ou uma vogal. Lembre-se de incluir os sinalizadores apropriados no regex.
+let quoteSample3 = "3 blind mice.";
+let myRegex3 = /[^aeiou^0-9]/gi;
+let result = quoteSample3.match(myRegex);
+
+console.log(quoteSample3);
+// ================================================================
+// Você deseja encontrar correspondências quando a letra socorre uma ou mais vezes em Mississippi. Escreva um regex que use o +sinal.
+let difficultSpelling = "Mississippi";
+let myRegex9 = /s+/g;
+let result9 = difficultSpelling.match(myRegex);
+
+console.log(difficultSpelling);
+// ================================================================
+// Para este desafio, chewieQuotefoi inicializado como a string Aaaaaaaaaaaaaaaarrrgh!nos bastidores. Crie um regex chewieRegexque use o *caractere para corresponder a um caractere maiúsculo Aimediatamente seguido por zero ou mais acaracteres minúsculos em chewieQuote. Seu regex não precisa de sinalizadores ou classes de caracteres e não deve corresponder a nenhuma das outras aspas.
+let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh";
+let chewieRegex = /Aa*/;
+let result10 = chewieQuote.match(chewieRegex);
+
+console.log(chewieQuote);
