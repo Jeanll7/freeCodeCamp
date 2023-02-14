@@ -1,3 +1,10 @@
+// Crie um único regex que corresponda a todos os caracteres que não sejam um número ou uma vogal. Lembre-se de incluir os sinalizadores apropriados no regex.
+let quoteSample3 = "3 blind mice.";
+let myRegex3 = /[^aeiou^0-9]/gi;
+let result = quoteSample3.match(myRegex3);
+
+console.log(result);
+// ================================================================
 let myString = "Hello, World!";
 let myRegex = /Hello/;
 let result1 = myRegex.test(myString);
@@ -55,13 +62,6 @@ let result8 = quoteSample2.match(myRegex1);
 
 console.log(result8);
 // ================================================================
-// Crie um único regex que corresponda a todos os caracteres que não sejam um número ou uma vogal. Lembre-se de incluir os sinalizadores apropriados no regex.
-let quoteSample3 = "3 blind mice.";
-let myRegex3 = /[^aeiou^0-9]/gi;
-let result = quoteSample3.match(myRegex);
-
-console.log(result);
-// ================================================================
 // Você deseja encontrar correspondências quando a letra socorre uma ou mais vezes em Mississippi. Escreva um regex que use o +sinal.
 let difficultSpelling = "Mississippi";
 let myRegex9 = /s+/g;
@@ -95,9 +95,27 @@ let rickyAndCal = "Cal and Ricky both like racing.";
 let calRegex = /^Cal/;
 let result13 = calRegex.test(rickyAndCal);
 // ================================================================
-// Use o caractere âncora ( $) para corresponder à string cabooseno final da string caboose
+// Use o caractere âncora ($) para corresponder à string cabooseno final da string caboose
 let caboose = "The last car on a train is the caboose";
 let lastRegex = /caboose$/;
 let result14 = lastRegex.test(caboose);
 
 console.log(result14);
+// ================================================================
+// Essas classes de caracteres de atalho também são conhecidas como classes de caracteres abreviados.
+let quoteSample4 = "The five boxing wizards jump quickly.";
+let alphabetRegexV2 = /[^A-Za-z0-9_]/;
+let result15 = quoteSample4.match(alphabetRegexV2).length;
+
+console.log(result15);
+// ================================================================
+// Use a classe de caracteres abreviados \Wpara contar o número de caracteres não alfanuméricos em várias aspas e strings.
+let quoteSample5 = "The five boxing wizards jump quickly.";
+let nonAlphabetRegex = /\W/g; // Change this line
+let result16 = quoteSample.match(nonAlphabetRegex).length;
+
+console.log(result16);
+// ================================================================
+let movieName = "2001: A Space Odyssey";
+let numRegex = /change/; // Change this line
+let result17 = movieName.match(numRegex).length;
