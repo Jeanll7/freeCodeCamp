@@ -22,7 +22,7 @@ let myString1 = "freeCodeCamp";
 let fccRegex = /freeCodeCamp/i;
 let result4 = fccRegex.test(myString1);
 
-console.log(result1);
+console.log(result4);
 // ================================================================
 // Aplique o .match()método para extrair a string coding.
 let extractStr = "Extract the word 'coding' from this string.";
@@ -60,36 +60,44 @@ let quoteSample3 = "3 blind mice.";
 let myRegex3 = /[^aeiou^0-9]/gi;
 let result = quoteSample3.match(myRegex);
 
-console.log(quoteSample3);
+console.log(result);
 // ================================================================
 // Você deseja encontrar correspondências quando a letra socorre uma ou mais vezes em Mississippi. Escreva um regex que use o +sinal.
 let difficultSpelling = "Mississippi";
 let myRegex9 = /s+/g;
 let result9 = difficultSpelling.match(myRegex);
 
-console.log(difficultSpelling);
+console.log(result9);
 // ================================================================
 // Para este desafio, chewieQuotefoi inicializado como a string Aaaaaaaaaaaaaaaarrrgh!nos bastidores. Crie um regex chewieRegexque use o *caractere para corresponder a um caractere maiúsculo Aimediatamente seguido por zero ou mais acaracteres minúsculos em chewieQuote. Seu regex não precisa de sinalizadores ou classes de caracteres e não deve corresponder a nenhuma das outras aspas.
 let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh";
 let chewieRegex = /Aa*/;
 let result10 = chewieQuote.match(chewieRegex);
 
-console.log(chewieQuote);
+console.log(result10);
 // ================================================================
 // Corrija o regex /<.*>/para retornar a tag HTML <h1>e não o texto "<h1>Winter is coming</h1>". Lembre-se de que o curinga .em uma expressão regular corresponde a qualquer caractere.
 let text = "<h1>Winter is coming</h1>";
 let myRegexx = /<.*?>/;
 let result11 = text.match(myRegex);
 
-console.log(text);
+console.log(result11);
 // ================================================================
 // Mas ele não encontra correspondências nas seguintes strings, pois não há zcaracteres de letras:
 let criminal = "abcabc";
 let reCriminals = /C+/;
 let result12 = criminal.match(reCriminals);
 
-console.log(criminal);
+console.log(result12);
 // ================================================================
+// Use o caractere circunflexo em um regex para localizar Calapenas no início da string rickyAndCal.
 let rickyAndCal = "Cal and Ricky both like racing.";
 let calRegex = /^Cal/;
 let result13 = calRegex.test(rickyAndCal);
+// ================================================================
+// Use o caractere âncora ( $) para corresponder à string cabooseno final da string caboose
+let caboose = "The last car on a train is the caboose";
+let lastRegex = /caboose$/;
+let result14 = lastRegex.test(caboose);
+
+console.log(result14);
