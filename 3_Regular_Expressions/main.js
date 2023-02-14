@@ -75,3 +75,21 @@ let chewieRegex = /Aa*/;
 let result10 = chewieQuote.match(chewieRegex);
 
 console.log(chewieQuote);
+// ================================================================
+// Corrija o regex /<.*>/para retornar a tag HTML <h1>e não o texto "<h1>Winter is coming</h1>". Lembre-se de que o curinga .em uma expressão regular corresponde a qualquer caractere.
+let text = "<h1>Winter is coming</h1>";
+let myRegexx = /<.*?>/;
+let result11 = text.match(myRegex);
+
+console.log(text);
+// ================================================================
+// Mas ele não encontra correspondências nas seguintes strings, pois não há zcaracteres de letras:
+let criminal = "abcabc";
+let reCriminals = /C+/;
+let result12 = criminal.match(reCriminals);
+
+console.log(criminal);
+// ================================================================
+let rickyAndCal = "Cal and Ricky both like racing.";
+let calRegex = /^Cal/;
+let result13 = calRegex.test(rickyAndCal);
