@@ -68,3 +68,51 @@ result = x == y ? "Equal!" : "Not equal!";
 
 console.log(result);
 // ================================================================
+// Corrija o código para que a variável result seja definida com o valor retornado da chamada da função getNine.
+function getNine() {
+  let x = 6;
+  let y = 3;
+  return x + y;
+}
+
+let result1 = getNine();
+console.log(result1);
+// ================================================================
+// A função raiseToPowereleva uma base a um expoente. Infelizmente, não é chamado corretamente - corrija o código para que o valor powerseja o 8 esperado.
+function raiseToPower(b, e) {
+  return Math.pow(b, e);
+}
+
+let base = 2;
+let exp = 3;
+let power = raiseToPower(base, exp);
+console.log(power);
+// ================================================================
+// Corrija os dois erros de indexação na função a seguir para que todos os números de 1 a 5 sejam impressos no console.
+function countToFive() {
+  let firstFive = "12345";
+  let len = firstFive.length;
+
+  for (let i = 0; i < len; i++) {
+    console.log(firstFive[i]);
+  }
+}
+
+countToFive();
+// ================================================================
+// A função a seguir deve criar uma matriz bidimensional com mlinhas e ncolunas de zeros. Infelizmente, não está produzindo a saída esperada porque a rowvariável não está sendo reinicializada (definida como uma matriz vazia) no loop externo. Corrija o código para que ele retorne uma matriz 3x2 correta de zeros, que se parece com [[0, 0], [0, 0], [0, 0]].
+function zeroArray(m, n) {
+  let newArray = [];
+  for (let i = 0; i < m; i++) {
+    let row = [];
+    for (let j = 0; j < n; j++) {
+      row.push(0);
+    }
+    newArray.push(row);
+  }
+  return newArray;
+}
+
+let matrix = zeroArray(3, 2);
+console.log(matrix);
+// ================================================================
