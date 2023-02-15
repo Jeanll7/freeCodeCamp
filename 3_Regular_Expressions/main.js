@@ -135,12 +135,40 @@ console.log(result19);
 // ================================================================
 // Altere o regex countWhiteSpacepara procurar vários caracteres de espaço em branco em uma string.
 let sample = "Whitespace is important in separating words";
-let countWhiteSpace = /\s/g;
+let countWhiteSpace = /\S/g;
 let result20 = sample.match(countWhiteSpace);
 // ================================================================
-// Altere o regex ohRegexpara corresponder à frase inteira Oh nosomente quando tiver 3letras .6h
+// Altere o regex oh Regexpara corresponder à frase inteira Oh no somente quando tiver 3 letras .6h
 let ohStr = "Ohhh no";
-let ohRegex = /a{3,6}h/;
+let ohRegex = /Oh{3,6}\sno/;
 let result21 = ohRegex.test(ohStr);
 
 console.log(result21);
+// ================================================================
+// Altere o regex haRegexpara corresponder à palavra Hazzah somente quando ela tiver quatro ou mais letras z.
+let haStr = "Hazzzzah";
+let haRegex = /Haz{4,}ah/;
+let result22 = haRegex.test(haStr);
+// ================================================================
+// Altere o regex timRegex para corresponder à palavra Timber somente quando ela tiver quatro letras m.
+let timStr = "Timmmmber";
+let timRegex = /Tim{4}ber/; // Change this line
+let result23 = timRegex.test(timStr);
+
+console.log(result23);
+// ================================================================
+// Altere o regex fav Regex para corresponder à versão da palavra em inglês americano (favorite) e inglês britânico ( ).favourite
+let favWord = "favorite";
+let favRegex = /favou?rite/;
+let result24 = favRegex.test(favWord);
+// ================================================================
+// Use lookaheads no pwRegex para encontrar senhas com mais de 5 caracteres e dois dígitos consecutivos.
+let sampleWord = "astronaut";
+let pwRegex = /(?=\w{6})(?=\w*\d{2})/;
+let result25 = pwRegex.test(sampleWord);
+// ================================================================
+// Em seguida, corrija o código para que o regex que você criou seja verificado myStringe trueou falseseja retornado dependendo se o regex corresponder.
+let myStr = "Eleanor Roosevelt";
+let myRegex2 = /(Franklin|Eleanor) (([A-Z]\.?|[A-Z][a-z]+) )?Roosevelt/;
+let result26 = myRegex.test(myString);
+// ================================================================
