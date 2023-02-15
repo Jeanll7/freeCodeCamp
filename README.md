@@ -2,7 +2,7 @@
 
 # FreeCodeCamp - JavaScript Algorithms and Data Structures
 
-### "Atribuo meu sucesso a isso - nunca dei ou aceitei nenhuma desculpa."
+### "I attribute my success to this - I never gave or accepted any excuses."
 
 - Florence Nightingale
 </div>
