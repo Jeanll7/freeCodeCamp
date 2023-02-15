@@ -167,8 +167,22 @@ let sampleWord = "astronaut";
 let pwRegex = /(?=\w{6})(?=\w*\d{2})/;
 let result25 = pwRegex.test(sampleWord);
 // ================================================================
-// Em seguida, corrija o código para que o regex que você criou seja verificado myStringe trueou falseseja retornado dependendo se o regex corresponder.
+// Em seguida, corrija o código para que o regex que você criou seja verificado myStringe true ou false seja retornado dependendo se o regex corresponder.
 let myStr = "Eleanor Roosevelt";
 let myRegex2 = /(Franklin|Eleanor) (([A-Z]\.?|[A-Z][a-z]+) )?Roosevelt/;
 let result26 = myRegex.test(myString);
 // ================================================================
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+) \1 \1$/;
+let result27 = reRegex.test(repeatNum);
+// ================================================================
+let str = "one two three";
+let fixRegex = /(\w+)\s(\w+)\s(\w+)/;
+let replaceText = "$3 $2 $1";
+let result28 = str.replace(fixRegex, replaceText);
+// ================================================================
+let hello = "  Hello, World!  ";
+let wsRegex = /^\s+|\s+$/g;
+let result29 = hello.replace(wsRegex, "");
+
+console.log(result29);
