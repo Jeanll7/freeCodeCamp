@@ -31,3 +31,40 @@ let output =
 
 console.log(output);
 console.clear();
+// ================================================================
+// Adicione duas console.log() instruções para verificar typeof cada uma das duas variáveis seven​​e threeno código.
+let seven = 7;
+let three = "3";
+console.log(typeof seven);
+console.log(typeof three);
+// ================================================================
+// Corrija os dois erros ortográficos no código para que o netWorkingCapitalcálculo funcione.
+let receivables = 10;
+let payables = 8;
+let netWorkingCapital = receivables - payables;
+console.log(`Net working capital is: ${netWorkingCapital}`);
+// ================================================================
+let myArray = [1, 2, 3];
+let arraySum = myArray.reduce((previous, current) => previous + current);
+console.log(`Sum of array values is: ${arraySum}`);
+// ================================================================
+// Corrija a string para que ela use aspas diferentes para o href valor ou escape das existentes. Mantenha as aspas duplas em toda a string.
+let innerHtml = "<p>Click here to <a href='#Home'>return home</a></p>";
+console.log(innerHtml);
+// ================================================================
+// Corrija a condição para que o programa execute a ramificação correta e o valor apropriado seja atribuído a result.
+let x = 7;
+let y = 9;
+let result = "to come";
+
+// if (x == y) {
+//   result = "Equal!";
+// } else {
+//   result = "Not equal!";
+// }
+// console.log(result);
+
+result = x == y ? "Equal!" : "Not equal!";
+
+console.log(result);
+// ================================================================
