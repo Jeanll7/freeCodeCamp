@@ -111,11 +111,36 @@ console.log(result15);
 // ================================================================
 // Use a classe de caracteres abreviados \Wpara contar o número de caracteres não alfanuméricos em várias aspas e strings.
 let quoteSample5 = "The five boxing wizards jump quickly.";
-let nonAlphabetRegex = /\W/g; // Change this line
+let nonAlphabetRegex = /\W/g;
 let result16 = quoteSample.match(nonAlphabetRegex).length;
 
 console.log(result16);
 // ================================================================
+// Use a classe de caracteres abreviados \d para contar quantos dígitos existem nos títulos dos filmes. Números escritos ("seis" em vez de 6) não contam.
 let movieName = "2001: A Space Odyssey";
-let numRegex = /change/; // Change this line
+let numRegex = /\d/g;
 let result17 = movieName.match(numRegex).length;
+// ================================================================
+// Use a classe de caracteres abreviados para não-dígitos \D para contar quantos não-dígitos existem em títulos de filmes.
+let movieName1 = "2001: A Space Odyssey";
+let noNumRegex = /\D/g;
+let result18 = movieName.match(noNumRegex).length;
+// ================================================================
+// Altere o regex userCheckpara caber nas restrições listadas acima.
+let username = "JackOfAllTrades";
+let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i;
+let result19 = userCheck.test(username);
+
+console.log(result19);
+// ================================================================
+// Altere o regex countWhiteSpacepara procurar vários caracteres de espaço em branco em uma string.
+let sample = "Whitespace is important in separating words";
+let countWhiteSpace = /\s/g;
+let result20 = sample.match(countWhiteSpace);
+// ================================================================
+// Altere o regex ohRegexpara corresponder à frase inteira Oh nosomente quando tiver 3letras .6h
+let ohStr = "Ohhh no";
+let ohRegex = /a{3,6}h/;
+let result21 = ohRegex.test(ohStr);
+
+console.log(result21);
