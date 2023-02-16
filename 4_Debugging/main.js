@@ -116,3 +116,12 @@ function zeroArray(m, n) {
 let matrix = zeroArray(3, 2);
 console.log(matrix);
 // ================================================================
+//A myFunc()função contém um loop infinito porque a condição do terminal i != 4 nunca será avaliada false(e interromperá o loop) - iserá incrementada em 2 a cada passagem e pulará diretamente sobre 4, pois i é ímpar para começar. Corrija o operador de comparação na condição terminal para que o loop seja executado apenas por i menos ou igual a 4.
+function myFunc() {
+  // for (let i = 1; i <= 4; i += 2) {
+  for (let i = 2; i <= 4; i++) {
+    console.log("Still going!");
+  }
+}
+
+console.log(myFunc());
