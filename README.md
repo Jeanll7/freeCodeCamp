@@ -12,6 +12,6 @@
 
 <div align="center">
 
-![JCAVI](/img/img-code.png)
+![JCAVI](/img/printing.png)
 
 </div>
