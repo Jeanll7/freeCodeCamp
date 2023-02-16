@@ -12,6 +12,6 @@
 
 <div align="center">
 
-![JCAVI](/img/printing.png)
+![FreeCodeCamp](/img/printing.png)
 
 </div>
