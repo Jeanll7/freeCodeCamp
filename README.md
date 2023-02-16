@@ -2,15 +2,16 @@
 
 # FreeCodeCamp - JavaScript Algorithms and Data Structures
 
-### "I attribute my success to this - I never gave or accepted any excuses."
+### A única pessoa que você está destinado a se tornar é a pessoa que você decidir ser.
 
-- Florence Nightingale
+- Ralph Waldo Emerson
+
 </div>
 
 <br>
 
 <div align="center">
 
-![JCAVI](/img/codecamp.png)
+![JCAVI](/img/img-code.png)
 
 </div>
