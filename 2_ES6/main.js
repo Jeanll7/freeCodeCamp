@@ -196,15 +196,15 @@ thermos.temperature = 26;
 temp = thermos.temperature;
 // ================================================================
 // Existem duas funções relacionadas a strings no editor. Exporte ambos usando o método de sua escolha.
-// const uppercaseString = (string) => {
-//   return string.toUpperCase();
-// };
+const uppercaseString0 = (string) => {
+  return string.toUpperCase();
+};
 
-// const lowercaseString = (string) => {
-//   return string.toLowerCase();
-// };
+const lowercaseString0 = (string) => {
+  return string.toLowerCase();
+};
 
-// export { uppercaseString, lowercaseString };
+export { uppercaseString0, lowercaseString0 };
 // ================================================================
 const uppercaseString = (string) => {
   return string.toUpperCase();
@@ -217,20 +217,20 @@ const lowercaseString = (string) => {
 console.log(uppercaseString("hello!"));
 console.log(lowercaseString("WORLD!"));
 // ================================================================
-// const makeServerRequest = new Promise((resolve, reject) => {
-//   let responseFromServer;
+const makeServerRequest0 = new Promise((resolve, reject) => {
+  let responseFromServer;
 
-//   // if (responseFromServer) {
-//   //   resolve("We got the data");
-//   // } else {
-//   //   reject("Data not received");
-//   // }
-//   // return responseFromServer;
+  // if (responseFromServer) {
+  //   resolve("We got the data");
+  // } else {
+  //   reject("Data not received");
+  // }
+  // return responseFromServer;
 
-//   return responseFromServer
-//     ? resolve("We got the data")
-//     : reject("Data not received");
-// });
+  return responseFromServer
+    ? resolve("We got the data")
+    : reject("Data not received");
+});
 // ================================================================
 // Adicione o thenmétodo à sua promessa. Use resultcomo parâmetro de sua função de retorno de chamada e registre result-se no console.
 const makeServerRequest1 = new Promise((resolve, reject) => {
