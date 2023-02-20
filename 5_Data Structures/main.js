@@ -267,3 +267,53 @@ function countOnline(usersObj) {
 }
 
 console.log(countOnline(users1));
+// ================================================================
+// Termine de escrever a getArrayOfUsers função para que ela retorne um array contendo todas as propriedades do objeto que recebe como argumento.
+let users2 = {
+  Alan: {
+    age: 27,
+    online: false,
+  },
+  Jeff: {
+    age: 32,
+    online: true,
+  },
+  Sarah: {
+    age: 48,
+    online: false,
+  },
+  Ryan: {
+    age: 19,
+    online: true,
+  },
+};
+
+function getArrayOfUsers(obj) {
+  return Object.keys(obj);
+}
+
+console.log(getArrayOfUsers(users2));
+// ================================================================
+// Dê uma olhada no objeto que fornecemos no editor de código. O userobjeto contém três chaves. A datachave contém cinco chaves, uma das quais contém uma matriz de friends. A partir disso, você pode ver como os objetos são flexíveis como estruturas de dados. Começamos a escrever uma função addFriend. Termine de escrevê-lo para que ele pegue um userobjeto e adicione o nome do friendargumento ao array armazenado user.data.friendse retorne esse array
+let user = {
+  name: "Kenneth",
+  age: 28,
+  data: {
+    username: "kennethCodesAllDay",
+    joinDate: "March 26, 2016",
+    organization: "freeCodeCamp",
+    friends: ["Sam", "Kira", "Tomo"],
+    location: {
+      city: "San Francisco",
+      state: "CA",
+      country: "USA",
+    },
+  },
+};
+
+function addFriend(userObj, friend) {
+  userObj.data.friends.push(friend);
+  return userObj.data.friends;
+}
+
+console.log(addFriend(user, "Pete"));
