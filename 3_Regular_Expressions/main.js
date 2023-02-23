@@ -30,6 +30,7 @@ let fccRegex = /freeCodeCamp/i;
 let result4 = fccRegex.test(myString1);
 
 console.log(result4);
+console.clear();
 // ================================================================
 // Aplique o .match()método para extrair a string coding.
 let extractStr = "Extract the word 'coding' from this string.";
