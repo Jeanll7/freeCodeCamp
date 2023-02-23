@@ -176,28 +176,16 @@ function titleCase(str) {
 }
 
 console.log(titleCase(texto1));
-console.clear();
 // ================================================================
 // Retorne a matriz resultante. As matrizes de entrada devem permanecer as mesmas após a execução da função.
 function frankenSplice(arr1, arr2, n) {
   let localArr = arr2.slice();
-  for (let i = 0; i < arr1.length; i++) {
-    localArr.splice(n, 0, arr1[i]);
-    n++;
-  }
+  localArr.splice(n, 0, ...arr1);
   return localArr;
 }
 
-console.clear();
-
-function frankenSplice(arr1, arr2, n) {
-  return [...arr2.slice(0, n), ...arr1, ...arr2.slice(n)];
-}
-
 // function frankenSplice(arr1, arr2, n) {
-//   let localArr = arr2.slice();
-//   localArr.splice(n, 0, ...arr1);
-//   return localArr;
+//   return [...arr2.slice(0, n), ...arr1, ...arr2.slice(n)];
 // }
 
 console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
@@ -237,9 +225,33 @@ function getIndexToIns(arr, num) {
 
 console.log(getIndexToIns([40, 60], 50));
 // ================================================================
-// Retorna truese a string no primeiro elemento do array contiver todas as letras da string no segundo elemento do array.
+// Retorna true se a string no primeiro elemento do array contiver todas as letras da string no segundo elemento do array.
 function mutation(arr) {
-  return arr;
+  return arr[1]
+    .toLowerCase()
+    .split("")
+    .every(function (letter) {
+      return arr[0].toLowerCase().indexOf(letter) !== -1;
+    });
 }
 
-mutation(["hello", "hey"]);
+console.log(mutation(["hello", "hey"]));
+// ================================================================
+// Escreva uma função que divida uma matriz (primeiro argumento) em grupos de comprimento size(segundo argumento) e os retorne como uma matriz bidimensional.
+function chunkArrayInGroups(arr, size) {
+  let temp = [];
+  const result = [];
+
+  for (let a = 0; a < arr.length; a++) {
+    if (a % size !== size - 1) temp.push(arr[a]);
+    else {
+      temp.push(arr[a]);
+      result.push(temp);
+      temp = [];
+    }
+  }
+  if (temp.length !== 0) result.push(temp);
+  return result;
+}
+
+console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
