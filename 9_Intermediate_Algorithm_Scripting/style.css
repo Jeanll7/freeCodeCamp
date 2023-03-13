@@ -12,7 +12,7 @@ body {
     align-items: center;
     justify-content: center;
     background: #0e0c18;
-    letter-spacing: .5px;
+    letter-spacing: .7px;
 }
 
 .main {
@@ -20,7 +20,14 @@ body {
     color: #DDD;
     background: #161b8f;
     padding: 25px;
+    /* width: 90%; */
     border-radius: 8px;
+}
+
+@media(max-width: 450px) {
+    .main {
+        width: 90%;
+    }
 }
 
 p {
