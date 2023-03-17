@@ -150,3 +150,180 @@ console.log(
   myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped")
 );
 // ================================================================
+// Por exemplo, para a entrada GCG, retorne[["G", "C"], ["C","G"], ["G", "C"]]
+// O caractere e seu par são emparelhados em uma matriz e todas as matrizes são agrupadas em uma matriz de encapsulamento.
+function pairElement(str) {
+  const pairs = [];
+
+  for (let i = 0; i < str.length; i++) {
+    const base = str[i];
+    const pair =
+      base === "A"
+        ? "T"
+        : base === "T"
+        ? "A"
+        : base === "C"
+        ? "G"
+        : base === "G"
+        ? "C"
+        : "";
+    pairs.push([base, pair]);
+  }
+  return pairs;
+
+  // const basePairs = {
+  //   A: "T",
+  //   T: "A",
+  //   C: "G",
+  //   G: "C",
+  // };
+  // const pairs = str.split("").map((base) => [base, basePairs[base]]);
+  // return pairs;
+}
+
+console.table(pairElement("GCG"));
+// ================================================================
+// Encontre a letra que falta no intervalo de letras passado e devolva-a.
+// Se todas as letras estiverem presentes no intervalo, retorne undefined.
+function fearNotLetter(str) {
+  for (let i = 1; i < str.length; ++i) {
+    if (str.charCodeAt(i) - str.charCodeAt(i - 1) > 1) {
+      return String.fromCharCode(str.charCodeAt(i - 1) + 1);
+    }
+  }
+
+  // for (let i = 0; i < str.length - 1; i++) {
+  //   const currCode = str.charCodeAt(i);
+  //   const nextCode = str.charCodeAt(i + 1);
+  //   if (nextCode - currCode > 1) {
+  //     return String.fromCharCode(currCode + 1);
+  //   }
+  // }
+  // return undefined;
+}
+
+console.log(fearNotLetter("abce"));
+// ================================================================
+// Os números exclusivos devem ser classificados por sua ordem original, mas a matriz final não deve ser classificada em ordem numérica.
+function uniteUnique() {
+  const finalArray = [];
+
+  for (let i = 0; i < arguments.length; i++) {
+    const arrayArguments = arguments[i];
+
+    for (let j = 0; j < arrayArguments.length; j++) {
+      let indexValue = arrayArguments[j];
+
+      if (finalArray.indexOf(indexValue) < 0) {
+        finalArray.push(indexValue);
+      }
+    }
+  }
+
+  return finalArray;
+}
+// clean code
+// const uniteUnique = (...arr) => [...new Set(arr.flat())];
+
+console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+// ================================================================
+// Converta os caracteres &, <, >, "(aspas duplas) e '(apóstrofe) em uma string em suas entidades HTML correspondentes.
+function convertHTML(str) {
+  const htmlEntities = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&apos;",
+  };
+
+  return str
+    .split("")
+    .map((entity) => htmlEntities[entity] || entity)
+    .join("");
+
+  // return str.replace(/([&<>\"'])/g, (match) => htmlEntities[match]); // clean code
+}
+
+console.log(convertHTML("Dolce & Gabbana"));
+// ================================================================
+// Dado um número inteiro positivo num, retorne a soma de todos os números ímpares de Fibonacci menores ou iguais a num.
+// Os dois primeiros números na sequência de Fibonacci são 0 e 1. Cada número adicional na sequência é a soma dos dois números anteriores. Os primeiros sete números da sequência de Fibonacci são 0, 1, 1, 2, 3, 5 e 8.
+// Por exemplo, sumFibs(10)deve retornar 10 porque todos os números ímpares de Fibonacci menores ou iguais a 10 são 1, 1, 3 e 5.
+function sumFibs(num) {
+  let prevNumber = 0;
+  let currNumber = 1;
+  let result = 0;
+
+  while (currNumber <= num) {
+    if (currNumber % 2 !== 0) {
+      result += currNumber;
+    }
+    currNumber += prevNumber;
+    prevNumber = currNumber - prevNumber;
+  }
+
+  return result;
+}
+
+console.log(sumFibs(4));
+// ================================================================
+// Reescreva sumPrimes para que retorne a soma de todos os números primos menores ou iguais a num.
+function sumPrimes(num) {
+  let sum = 0;
+  for (let i = 2; i <= num; i++) {
+    let isPrime = true;
+    for (let j = 2; j <= Math.sqrt(i); j++) {
+      if (i % j === 0) {
+        isPrime = false;
+        break;
+      }
+    }
+    if (isPrime) {
+      sum += i;
+    }
+  }
+  return sum;
+
+  // let primes = [];
+  // for (let i = 2; i <= num; i++) {
+  //   if (primes.every((prime) => i % prime !== 0))
+  //     primes.push(i);
+  // }
+  // return primes.reduce((sum, prime) => sum + prime, 0);
+}
+
+console.log(sumPrimes(15));
+// ================================================================
+// Encontre o menor múltiplo comum dos parâmetros fornecidos que pode ser dividido igualmente por ambos, bem como por todos os números sequenciais no intervalo entre esses parâmetros.
+function smallestCommons(arr) {
+  const [min, max] = arr.sort((a, b) => a - b);
+  const range = Array(max - min + 1)
+    .fill(0)
+    .map((_, i) => i + min);
+  const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
+  const lcm = (a, b) => (a * b) / gcd(a, b);
+  return range.reduce((multiple, curr) => lcm(multiple, curr));
+
+  // const [min, max] = arr.sort((a, b) => a - b);
+  // let scm = min;
+  // for (let i = min + 1; i <= max; i++) {
+  //   let gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
+  //   scm = (scm * i) / gcd(scm, i);
+  // }
+  // return scm;
+}
+
+console.log(smallestCommons([1, 5]));
+console.log(smallestCommons([2, 10]));
+// ================================================================
+// Dada a matriz arr, percorra e remova cada elemento começando do primeiro elemento (o índice 0) até que a função func retorne true quando o elemento iterado for passado por ela.
+function dropElements(arr, func) {
+  return arr;
+}
+
+console.log(
+  dropElements([1, 2, 3], function (n) {
+    return n < 3;
+  })
+);
