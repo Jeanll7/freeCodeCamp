@@ -226,6 +226,7 @@ function uniteUnique() {
 // const uniteUnique = (...arr) => [...new Set(arr.flat())];
 
 console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+console.clear();
 // ================================================================
 // Converta os caracteres &, <, >, "(aspas duplas) e '(apóstrofe) em uma string em suas entidades HTML correspondentes.
 function convertHTML(str) {
@@ -318,12 +319,209 @@ console.log(smallestCommons([1, 5]));
 console.log(smallestCommons([2, 10]));
 // ================================================================
 // Dada a matriz arr, percorra e remova cada elemento começando do primeiro elemento (o índice 0) até que a função func retorne true quando o elemento iterado for passado por ela.
-function dropElements(arr, func) {
-  return arr;
+
+const dropElements = (arr, func) => {
+  let sliceIndex = arr.findIndex(func);
+  return arr.slice(sliceIndex >= 0 ? sliceIndex : arr.length);
+};
+
+console.log(dropElements([1, 2, 3], (n) => n < 3));
+
+function dropElements1(arr, func) {
+  let sliceIndex = arr.findIndex(func);
+  return arr.slice(sliceIndex >= 0 ? sliceIndex : arr.length);
+}
+
+console.log(dropElements1([1, 2, 3, 5, 8, 11], (n) => n < 3));
+// ================================================================
+// Achatar uma matriz aninhada. Você deve considerar os vários níveis de aninhamento.
+function steamrollArray(arr) {
+  let flattenedArray = [];
+  // loop através da matriz
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      // Se o elemento atual for uma matriz, chama a função recursivamente
+      flattenedArray = flattenedArray.concat(steamrollArray(arr[i]));
+    } else {
+      // Se o elemento atual não for uma matriz, adiciona-o à matriz achatada
+      flattenedArray.push(arr[i]);
+    }
+  }
+  return flattenedArray;
+}
+
+function steamrollArray1(arr) {
+  const flat = [].concat(...arr);
+  return flat.some(Array.isArray) ? steamrollArray(flat) : flat;
+}
+
+console.log(steamrollArray([1, [2], [3, [[4]]]]));
+console.log(steamrollArray1([1, [2, 8], [3, [[4]]]]));
+// ================================================================
+// Retorna uma frase traduzida para o inglês da string binária passada.
+// A string binária será separada por espaço.
+function binaryAgent(str) {
+  // const binaries = str.split(" ");
+  // let result = "";
+
+  // for (let i = 0; i < binaries.length; i++) {
+  //   const decimal = parseInt(binaries[i], 2);
+  //   const character = String.fromCharCode(decimal);
+  //   result += character;
+  // }
+  // return result;
+
+  // clean code
+  return String.fromCharCode(
+    ...str.split(" ").map((char) => parseInt(char, 2))
+  );
 }
 
 console.log(
-  dropElements([1, 2, 3], function (n) {
-    return n < 3;
-  })
+  binaryAgent(
+    "01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"
+  )
 );
+// ================================================================
+console.log(String.fromCharCode(65, 66, 67)); // retorna "ABC"
+console.log(
+  String.fromCharCode(
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    96
+  )
+); // retorna "alfabeto completo"
+
+function stringFromCharCodeWithComma(numbers) {
+  return String.fromCharCode(...numbers)
+    .split("")
+    .join(",");
+}
+
+const codes = [96, 97, 98, 99, 100, 101];
+console.log(stringFromCharCodeWithComma(codes)); // saída: "`a,b,c,d,e"
+// ================================================================
+// Em JavaScript, truthy valores são valores convertidos true quando avaliados em um contexto booleano.
+// Lembre-se, você pode acessar as propriedades do objeto por meio de notação de ponto ou []notação.
+function truthCheck(collection, pre) {
+  let counter = 0;
+  for (let c in collection) {
+    if (collection[c][pre]) {
+      counter++;
+    }
+  }
+  return counter == collection.length;
+
+  // clean code
+  // return collection.every((obj) => obj[pre]);
+}
+
+console.log(
+  truthCheck(
+    [
+      { name: "Quincy", role: "Founder", isBot: false },
+      { name: "Naomi", role: "", isBot: false },
+      { name: "Camperbot", role: "Bot", isBot: true },
+    ],
+    "isBot"
+  )
+);
+// ================================================================
+// Crie uma função que some dois argumentos. Se apenas um argumento for fornecido, retorne uma função que espera um argumento e retorna a soma.
+function addTogether(first, second) {
+  if (typeof first !== "number") return undefined;
+  return arguments.length === 2
+    ? typeof second === "number"
+      ? first + second
+      : undefined
+    : (second) => addTogether(first, second);
+}
+
+console.log(addTogether(2, 3));
+// ================================================================
+// Execute os testes para ver a saída esperada para cada método. Os métodos que recebem um argumento devem aceitar apenas um argumento e deve ser uma string. Esses métodos devem ser os únicos meios disponíveis de interação com o objeto.
+const Person = function (firstAndLast) {
+  let fullName = firstAndLast;
+
+  this.getFirstName = function () {
+    return fullName.split(" ")[0];
+  };
+
+  this.getLastName = function () {
+    return fullName.split(" ")[1];
+  };
+
+  this.getFullName = function () {
+    return fullName;
+  };
+
+  this.setFirstName = function (name) {
+    fullName = name + " " + fullName.split(" ")[1];
+  };
+
+  this.setLastName = function (name) {
+    fullName = fullName.split(" ")[0] + " " + name;
+  };
+
+  this.setFullName = function (name) {
+    fullName = name;
+  };
+};
+
+const bob = new Person("Bob Ross");
+console.log(bob.getFullName());
+// ================================================================
+// O raio da Terra é de 6367,4447 quilômetros e o valor GM da Terra é de 398600,4418 km 3 s -2 .
+function orbitalPeriod(arr) {
+  const GM = 398600.4418;
+  const earthRadius = 6367.4447;
+
+  const calculateOrbitalPeriod = (altitude) => {
+    const a = earthRadius + altitude;
+    const T = 2 * Math.PI * Math.sqrt(Math.pow(a, 3) / GM);
+    return Math.round(T);
+  };
+
+  return arr.map(({ name, avgAlt }) => ({
+    name,
+    orbitalPeriod: calculateOrbitalPeriod(avgAlt),
+  }));
+
+  // const GM = 398600.4418;
+  // const earthRadius = 6367.4447;
+
+  // return arr.map(({ name, avgAlt }) => {
+  //   const earth = earthRadius + avgAlt;
+  //   const orbitalPeriod = Math.round(
+  //     2 * Math.PI * Math.sqrt(Math.pow(earth, 3) / GM)
+  //   );
+  //   return { name, orbitalPeriod };
+  // });
+}
+
+console.table(orbitalPeriod([{ name: "sputnik", avgAlt: 35873.5553 }]));
