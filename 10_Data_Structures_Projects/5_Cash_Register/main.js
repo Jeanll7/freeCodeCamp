@@ -1,4 +1,4 @@
-// Projete uma função de caixa registradora checkCashRegister() que aceite preço de compra como primeiro argumento ( price ), pagamento como segundo argumento ( cash ) e dinheiro na gaveta ( cid ) como terceiro argumento.
+// Projete uma função de caixa registradora checkCashRegister() que aceite preço de compra como primeiro argumento (price), pagamento como segundo argumento (cash) e dinheiro na gaveta (cid) como terceiro argumento.
 
 // cid é uma matriz 2D que lista a moeda disponível.
 
